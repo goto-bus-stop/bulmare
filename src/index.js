@@ -27,7 +27,7 @@ const withModifiers = (classNames) =>
     const classes = []
     Object.keys(classNames).forEach((modifier) => {
       if (props[modifier]) {
-        newProps[modifier] = undefined
+        delete newProps[modifier]
         classes.push(classNames[modifier])
       }
     })
