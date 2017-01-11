@@ -12,12 +12,14 @@ const withClassName = (className) =>
     className: cx(className, props.className)
   }))
 
+const BaseComponent = componentFromProp('component')
+
 const bulmaComponent = (defaultType, className, ...hocs) =>
   compose(
     ...hocs,
     withClassName(className),
     defaultProps({ component: defaultType })
-  )(componentFromProp('component'))
+  )(BaseComponent)
 
 const withModifiers = (classNames) =>
   mapProps((props) => {
@@ -92,6 +94,26 @@ export const Input = bulmaComponent('input', 'input')
 export const Textarea = bulmaComponent('textarea', 'textarea')
 export const Checkbox = bulmaComponent('input', 'checkbox', withProps({ type: 'checkbox' }))
 export const Radio = bulmaComponent('input', 'radio', withProps({ type: 'radio' }))
+
+// http://bulma.io/documentation/components/card/
+export const Card = bulmaComponent('div', 'card')
+export const CardHeaderTitle = bulmaComponent('p', 'card-header-title')
+export const CardHeaderIcon = bulmaComponent('a', 'card-header-icon')
+export const CardHeader = bulmaComponent('header', 'card-header',
+  // Add `title` and `icon` shortcut props.
+  mapProps(({ title, icon, ...props }) => ({
+    ...props,
+    children: [
+      title && React.createElement(CardHeaderTitle, {}, title),
+      icon && React.createElement(CardHeaderIcon, {}, icon)
+    ].concat(props.children).filter(Boolean)
+  }))
+)
+export const CardImage = bulmaComponent('div', 'card-image')
+export const CardContent = bulmaComponent('div', 'card-content')
+export const CardFooter = bulmaComponent('footer', 'card-footer')
+export const CardFooterItem = bulmaComponent('span', 'card-footer-item')
+export const CardFooterLink = bulmaComponent('a', 'card-footer-item')
 
 // http://bulma.io/documentation/components/menu/
 export const MenuLabel = bulmaComponent('p', 'menu-label')
