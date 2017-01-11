@@ -53,6 +53,9 @@ const sizeModifiers = {
 
 const withColorModifiers = withModifiers(colorModifiers)
 const withSizeModifiers = withModifiers(sizeModifiers)
+const withDisableModifier = withModifiers({
+  disabled: 'is-disabled'
+})
 
 // http://bulma.io/documentation/layout/container/
 export const Container = bulmaComponent('div', 'container')
@@ -95,6 +98,16 @@ export const MenuLabel = bulmaComponent('p', 'menu-label')
 export const MenuList = bulmaComponent('ul', 'menu-list')
 export const MenuItem = 'li'
 
+// http://bulma.io/documentation/components/pagination/
+export const Pagination = bulmaComponent('nav', 'pagination')
+export const PaginationPrevious = bulmaComponent('a', 'pagination-previous', withDisableModifier)
+export const PaginationNext = bulmaComponent('a', 'pagination-next', withDisableModifier)
+export const PaginationList = bulmaComponent('ul', 'pagination-list', withDisableModifier)
+export const PaginationLink = nest('li', bulmaComponent('a', 'pagination-link'))
+export const PaginationEllipsis = nest('li',
+  bulmaComponent('span', 'pagination-ellipsis', defaultProps({ children: '…' }))
+)
+
 // http://bulma.io/documentation/elements/icon/
 const FontAwesome = bulmaComponent('i', 'fa')
 const IconWrapper = bulmaComponent('span', 'icon')
@@ -104,7 +117,7 @@ export const Icon = ({ name, ...props }) =>
   )
 
 // http://bulma.io/documentation/components/message/
-export const Message = bulmaComponent('article', 'message')
+export const Message = bulmaComponent('article', 'message', withColorModifiers)
 export const MessageHeader = bulmaComponent('div', 'message-header')
 export const MessageBody = bulmaComponent('div', 'message-body')
 
