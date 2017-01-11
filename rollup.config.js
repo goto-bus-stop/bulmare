@@ -9,17 +9,7 @@ export default {
     { format: 'es', dest: 'dist/index.es.js' }
   ],
   plugins: [
-    babel({
-      include: 'src/**',
-      presets: [
-        ['latest', {
-          es2015: { modules: false, loose: true }
-        }]
-      ],
-      plugins: [
-        'transform-object-rest-spread'
-      ]
-    })
+    babel({ include: 'src/**' })
   ],
   external: (id) => id === 'react' ||
     Object.keys(pkg.dependencies).includes(id.split('/')[0])

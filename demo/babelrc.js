@@ -5,7 +5,9 @@ module.exports = {
   plugins: [
     'react-require',
     ['module-resolver', {
-      alias: { bulmare: path.resolve(__dirname, '../') }
+      alias: {
+        bulmare: path.resolve(__dirname, '../src/index.js')
+      }
     }]
   ]
 }
