@@ -1,5 +1,4 @@
-import buble from 'rollup-plugin-buble'
-import inject from 'rollup-plugin-inject'
+import babel from 'rollup-plugin-babel'
 
 const pkg = require('./package.json')
 
@@ -10,14 +9,16 @@ export default {
     { format: 'es', dest: 'dist/index.es.js' }
   ],
   plugins: [
-    buble({
+    babel({
       include: 'src/**',
-      objectAssign: 'simpleAssign'
-    }),
-    inject({
-      include: 'src/**',
-      React: 'react',
-      simpleAssign: 'simple-assign'
+      presets: [
+        ['latest', {
+          es2015: { modules: false, loose: true }
+        }]
+      ],
+      plugins: [
+        'transform-object-rest-spread'
+      ]
     })
   ],
   external: (id) => id === 'react' ||

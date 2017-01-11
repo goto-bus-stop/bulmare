@@ -12,11 +12,12 @@
     "simple-assign": "^0.1.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-preset-latest": "^6.16.0",
     "buble": "^0.15.2",
     "bulma": "^0.3.0",
     "react": "^15.4.2",
     "rollup": "^0.41.1",
-    "rollup-plugin-buble": "^0.15.0",
-    "rollup-plugin-inject": "^2.0.0"
+    "rollup-plugin-babel": "^2.7.1"
   }
 }

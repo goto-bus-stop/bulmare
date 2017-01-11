@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import React from 'react'
 import compose from 'recompose/compose'
 import mapProps from 'recompose/mapProps'
 import withProps from 'recompose/withProps'
@@ -20,7 +21,7 @@ const bulmaComponent = (defaultType, className, ...hocs) =>
 
 const withModifiers = (classNames) =>
   mapProps((props) => {
-    const newProps = Object.assign({}, props)
+    const newProps = { ...props }
     const classes = []
     Object.keys(classNames).forEach((modifier) => {
       if (props[modifier]) {
@@ -63,10 +64,9 @@ export const Footer = nest(bulmaComponent('div', 'footer'), Container)
 // http://bulma.io/documentation/grid/columns/
 export const Columns = bulmaComponent('div', 'columns')
 export const Column = bulmaComponent('div', 'column',
-  mapProps((props) => ({
+  mapProps(({ size, className, ...props }) => ({
     ...props,
-    size: undefined,
-    className: cx(props.size && `is-${props.size}`, props.className)
+    className: cx(size && `is-${size}`, className)
   }))
 )
 
@@ -98,11 +98,10 @@ export const MenuItem = 'li'
 // http://bulma.io/documentation/elements/icon/
 const FontAwesome = bulmaComponent('i', 'fa')
 const IconWrapper = bulmaComponent('span', 'icon')
-export const Icon = (props) => (
-  <IconWrapper {...props} name={undefined}>
-    <FontAwesome className={`fa-${props.name}`} />
-  </IconWrapper>
-)
+export const Icon = ({ name, ...props }) =>
+  React.createElement(IconWrapper, props,
+    React.createElement(FontAwesome, { className: `fa-${name}` })
+  )
 
 // http://bulma.io/documentation/components/message/
 export const Message = bulmaComponent('article', 'message')
