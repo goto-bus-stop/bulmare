@@ -5,6 +5,7 @@
     }]
   ],
   "plugins": [
+    "../tools/addDisplayName",
     "transform-object-rest-spread"
   ]
 }

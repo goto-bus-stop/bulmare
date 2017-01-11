@@ -5,6 +5,7 @@ import mapProps from 'recompose/mapProps'
 import withProps from 'recompose/withProps'
 import defaultProps from 'recompose/defaultProps'
 import componentFromProp from 'recompose/componentFromProp'
+import setDisplayName from 'recompose/setDisplayName'
 import nest from 'recompose/nest'
 
 const withClassName = (className) =>

@@ -2,7 +2,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next"
+    "start": "next start"
   },
   "dependencies": {
     "babel-plugin-module-resolver": "^2.4.0",
