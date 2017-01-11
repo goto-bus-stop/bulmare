@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next"
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^2.4.0",
+    "babel-plugin-react-require": "^3.0.0",
+    "bulma": "^0.3.0",
+    "next": "^2.0.0-beta.16"
+  }
+}
