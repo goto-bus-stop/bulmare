@@ -6,6 +6,9 @@
   "scripts": {
     "build": "rollup -c"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "classnames": "^2.2.5",
     "recompose": "^0.21.2",
