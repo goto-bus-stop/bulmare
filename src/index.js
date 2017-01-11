@@ -18,6 +18,41 @@ const bulmaComponent = (defaultType, className, ...hocs) =>
     defaultProps({ component: defaultType })
   )(componentFromProp('component'))
 
+const withModifiers = (classNames) =>
+  mapProps((props) => {
+    const newProps = Object.assign({}, props)
+    const classes = []
+    Object.keys(classNames).forEach((modifier) => {
+      if (props[modifier]) {
+        newProps[modifier] = undefined
+        classes.push(classNames[modifier])
+      }
+    })
+    newProps.className = cx(props.className, classes)
+    return newProps
+  })
+
+const colorModifiers = {
+  black: 'is-black',
+  dark: 'is-dark',
+  light: 'is-light',
+  white: 'is-white',
+  primary: 'is-primary',
+  info: 'is-info',
+  success: 'is-success',
+  warning: 'is-warning',
+  danger: 'is-danger',
+}
+
+const sizeModifiers = {
+  small: 'is-small',
+  medium: 'is-medium',
+  large: 'is-large',
+}
+
+const withColorModifiers = withModifiers(colorModifiers)
+const withSizeModifiers = withModifiers(sizeModifiers)
+
 // http://bulma.io/documentation/layout/container/
 export const Container = bulmaComponent('div', 'container')
 export const Header = nest(bulmaComponent('div', 'header'), Container)
@@ -42,10 +77,10 @@ export const Box = bulmaComponent('div', 'box')
 export const Content = bulmaComponent('div', 'content')
 
 // http://bulma.io/documentation/elements/button/
-export const Button = bulmaComponent('button', 'button')
+export const Button = bulmaComponent('button', 'button', withColorModifiers)
 
 // http://bulma.io/documentation/elements/delete/
-export const Delete = bulmaComponent('button', 'delete')
+export const Delete = bulmaComponent('button', 'delete', withSizeModifiers)
 
 // http://bulma.io/documentation/elements/form/
 export const Control = bulmaComponent('div', 'control')
@@ -75,10 +110,10 @@ export const MessageHeader = bulmaComponent('div', 'message-header')
 export const MessageBody = bulmaComponent('div', 'message-body')
 
 // http://bulma.io/documentation/elements/notification/
-export const Notification = bulmaComponent('div', 'notification')
+export const Notification = bulmaComponent('div', 'notification', withColorModifiers)
 
 // http://bulma.io/documentation/elements/tag/
-export const Tag = bulmaComponent('span', 'tag')
+export const Tag = bulmaComponent('span', 'tag', withColorModifiers, withSizeModifiers)
 
 // http://bulma.io/documentation/elements/progress/
 export const Progress = bulmaComponent('progress', 'progress')
