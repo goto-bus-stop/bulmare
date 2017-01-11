@@ -131,6 +131,22 @@ export const PaginationEllipsis = nest('li',
   bulmaComponent('span', 'pagination-ellipsis', defaultProps({ children: '…' }))
 )
 
+// http://bulma.io/documentation/components/nav/
+export const Nav = bulmaComponent('nav', 'nav')
+export const NavLeft = bulmaComponent('div', 'nav-left')
+export const NavCenter = bulmaComponent('div', 'nav-center')
+export const NavRight = bulmaComponent('div', 'nav-right')
+export const NavMenu = bulmaComponent('div', 'nav-menu', withModifiers({
+  left: 'nav-left',
+  center: 'nav-center',
+  right: 'nav-right'
+}))
+export const NavItem = bulmaComponent('a', 'nav-item')
+export const NavTab = defaultProps({ className: 'is-tab' })(NavItem)
+export const NavToggle = bulmaComponent('span', 'nav-toggle', defaultProps({
+  children: ['span', 'span', 'span'].map(React.createElement)
+}))
+
 // http://bulma.io/documentation/elements/icon/
 const FontAwesome = bulmaComponent('i', 'fa')
 const IconWrapper = bulmaComponent('span', 'icon')

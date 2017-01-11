@@ -6,7 +6,7 @@ module.exports = {
     'react-require',
     ['module-resolver', {
       alias: {
-        bulmare: path.resolve(__dirname, '../src/index.js')
+        bulmare: path.resolve(__dirname, '../dist/index.cjs.js')
       }
     }]
   ]
