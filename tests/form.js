@@ -8,31 +8,31 @@ test('Control should have class "control"', (t) => {
 })
 
 test('Labels should have class "label"', (t) => {
-  t.true(shallow(<Label>Username</Label>).dive().matchesElement(
+  t.true(shallow(<Label>Username</Label>).dive().equals(
     <label className="label">Username</label>
   ))
 })
 
 test('HTML Inputs should have class "input"', (t) => {
-  t.true(shallow(<Input name="name" />).dive().matchesElement(
+  t.true(shallow(<Input name="name" />).dive().equals(
     <input className="input" name="name" />
   ))
 })
 
 test('Textareas should have class "textarea"', (t) => {
-  t.true(shallow(<Textarea />).dive().matchesElement(
+  t.true(shallow(<Textarea />).dive().equals(
     <textarea className="textarea" />
   ))
 })
 
 test('Checkboxes should have type "checkbox" and class "checkbox"', (t) => {
-  t.true(shallow(<Checkbox checked />).dive().matchesElement(
+  t.true(shallow(<Checkbox checked />).dive().equals(
     <input type="checkbox" className="checkbox" checked />
   ))
 })
 
 test('Radio buttons should have type "radio" and class "radio"', (t) => {
-  t.true(shallow(<Radio />).dive().matchesElement(
+  t.true(shallow(<Radio />).dive().equals(
     <input type="radio" className="radio" />
   ))
 })
