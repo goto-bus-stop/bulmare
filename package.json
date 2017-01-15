@@ -4,7 +4,16 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "cross-env NODE_ENV=testing ava tests/*.js"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": {
+      "babelrc": true
+    }
   },
   "files": [
     "dist"
@@ -18,11 +27,18 @@
     "bulma": "^0.3.0"
   },
   "devDependencies": {
+    "ava": "^0.17.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-register": "^6.18.0",
     "buble": "^0.15.2",
     "bulma": "^0.3.0",
+    "cross-env": "^3.1.4",
+    "enzyme": "^2.7.0",
     "react": "^15.4.2",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
     "rollup": "^0.41.1",
     "rollup-plugin-babel": "^2.7.1"
   }

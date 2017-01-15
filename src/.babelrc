@@ -1,11 +1,6 @@
 {
-  "presets": [
-    ["latest", {
-      "es2015": { "modules": false, "loose": true }
-    }]
-  ],
+  "extends": "../.babelrc",
   "plugins": [
-    "../tools/addDisplayName",
-    "transform-object-rest-spread"
+    "../tools/addDisplayName"
   ]
 }
