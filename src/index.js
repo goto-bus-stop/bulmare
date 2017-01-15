@@ -83,7 +83,17 @@ export const Box = bulmaComponent('div', 'box')
 export const Content = bulmaComponent('div', 'content')
 
 // http://bulma.io/documentation/elements/button/
-export const Button = bulmaComponent('button', 'button', withColorModifiers)
+export const Button = bulmaComponent('button', 'button',
+  withModifiers({
+    ...colorModifiers,
+    ...sizeModifiers,
+    link: 'is-link',
+    outlined: 'is-outlined',
+    loading: 'is-loading'
+    // Not including the `disabled` state because the prop will disable the
+    // button and apply the appropriate styles that way.
+  })
+)
 
 // http://bulma.io/documentation/elements/delete/
 export const Delete = bulmaComponent('button', 'delete', withSizeModifiers)
