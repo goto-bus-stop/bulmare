@@ -80,7 +80,7 @@ export const Column = bulmaComponent('div', 'column',
 export const Box = bulmaComponent('div', 'box')
 
 // http://bulma.io/documentation/elements/content/
-export const Content = bulmaComponent('div', 'content')
+export const Content = bulmaComponent('div', 'content', withSizeModifiers)
 
 // http://bulma.io/documentation/elements/button/
 export const Button = bulmaComponent('button', 'button',
