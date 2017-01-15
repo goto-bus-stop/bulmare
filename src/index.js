@@ -133,7 +133,9 @@ export const PaginationEllipsis = nest('li',
 )
 
 // http://bulma.io/documentation/components/nav/
-export const Nav = bulmaComponent('nav', 'nav')
+export const Nav = bulmaComponent('nav', 'nav', withModifiers({
+  shadow: 'has-shadow'
+}))
 export const NavLeft = bulmaComponent('div', 'nav-left')
 export const NavCenter = bulmaComponent('div', 'nav-center')
 export const NavRight = bulmaComponent('div', 'nav-right')

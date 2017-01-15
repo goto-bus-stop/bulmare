@@ -1,6 +1,6 @@
 # bulmare
 
-Thin React components for [Bulma][].
+Thin functional React components for [Bulma][].
 
 > Bulmare is an early WIP, so please don't depend on it yet!
 
