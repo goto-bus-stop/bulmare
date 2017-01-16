@@ -15,10 +15,12 @@ const withClassName = (className) =>
 
 const BaseComponent = componentFromProp('component')
 
+const identity = (a) => a
+
 const bulmaComponent = (defaultType, className, ...hocs) =>
   compose(
     ...hocs,
-    withClassName(className),
+    className ? withClassName(className) : identity,
     defaultProps({ component: defaultType })
   )(BaseComponent)
 
@@ -130,7 +132,7 @@ export const CardFooterLink = bulmaComponent('a', 'card-footer-item')
 export const Menu = bulmaComponent('aside', 'menu')
 export const MenuLabel = bulmaComponent('p', 'menu-label')
 export const MenuList = bulmaComponent('ul', 'menu-list')
-export const MenuItem = bulmaComponent('li', '')
+export const MenuItem = bulmaComponent('li')
 
 // http://bulma.io/documentation/components/pagination/
 export const Pagination = bulmaComponent('nav', 'pagination')
