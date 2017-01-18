@@ -9,7 +9,10 @@ export default {
     { format: 'es', dest: 'dist/index.es.js' }
   ],
   plugins: [
-    babel({ include: 'src/**' })
+    babel({
+      include: 'src/**',
+      plugins: ['external-helpers']
+    })
   ],
   external: (id) => id === 'react' ||
     Object.keys(pkg.dependencies).includes(id.split('/')[0])
