@@ -1,10 +1,35 @@
 import React from 'react'
 import test from 'ava'
 import { shallow } from 'enzyme'
-import { Control, Label, Input, Textarea, Checkbox, Radio } from '../src'
+import { Control, Label, Input, Textarea, Checkbox, Radio, Icon } from '../src'
 
 test('Control should have class "control"', (t) => {
   t.true(shallow(<Control />).hasClass('control'))
+})
+
+test('Controls should render an icon if the "icon" prop is given', (t) => {
+  t.true(shallow(
+    <Control icon={<Icon name="email" />}>
+      <Input type="email" />
+    </Control>
+  ).dive().equals(
+    <div className="control has-icon">
+      <Icon name="email" />
+      <Input type="email" />
+    </div>
+  ))
+
+  // And on the right…
+  t.true(shallow(
+    <Control iconRight={<Icon name="check" />}>
+      <Input />
+    </Control>
+  ).dive().equals(
+    <div className="control has-icon has-icon-right">
+      <Icon name="check" />
+      <Input />
+    </div>
+  ))
 })
 
 test('Labels should have class "label"', (t) => {
