@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardContent, CardFooter, Content, Icon } from 'bulmare'
+import { Card, CardHeader, CardContent, Content, Icon } from 'bulmare'
 
 export default () => (
   <div>
