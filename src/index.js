@@ -117,8 +117,8 @@ export const CardHeader = bulmaComponent('header', 'card-header',
   mapProps(({ title, icon, ...props }) => ({
     ...props,
     children: [
-      title && React.createElement(CardHeaderTitle, {}, title),
-      icon && React.createElement(CardHeaderIcon, {}, icon)
+      title && <CardHeaderTitle>{title}</CardHeaderTitle>,
+      icon && <CardHeaderIcon>{icon}</CardHeaderIcon>
     ].concat(props.children).filter(Boolean)
   }))
 )
@@ -159,16 +159,16 @@ export const NavMenu = bulmaComponent('div', 'nav-menu', withModifiers({
 export const NavItem = bulmaComponent('a', 'nav-item')
 export const NavTab = defaultProps({ className: 'is-tab' })(NavItem)
 export const NavToggle = bulmaComponent('span', 'nav-toggle', defaultProps({
-  children: ['span', 'span', 'span'].map(React.createElement)
+  children: [<span />, <span />, <span />]
 }))
 
 // http://bulma.io/documentation/elements/icon/
 const FontAwesome = bulmaComponent('i', 'fa')
 const IconWrapper = bulmaComponent('span', 'icon')
 export const Icon = ({ name, ...props }) =>
-  React.createElement(IconWrapper, props,
-    React.createElement(FontAwesome, { className: `fa-${name}` })
-  )
+  <IconWrapper {...props}>
+    <FontAwesome className={`fa-${name}`} />
+  </IconWrapper>
 
 // http://bulma.io/documentation/components/message/
 export const Message = bulmaComponent('article', 'message', withColorModifiers)
