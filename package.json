@@ -5,7 +5,7 @@
   "module": "dist/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "cross-env NODE_ENV=testing ava"
+    "test": "cross-env NODE_ENV=testing ava && standard"
   },
   "ava": {
     "files": [
@@ -44,6 +44,7 @@
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
     "rollup": "^0.41.1",
-    "rollup-plugin-babel": "^2.7.1"
+    "rollup-plugin-babel": "^2.7.1",
+    "standard": "^8.6.0"
   }
 }

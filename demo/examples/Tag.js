@@ -31,7 +31,7 @@ export default () => (
       </Tag>
       <Tag danger large>
         World
-        <Delete  />
+        <Delete />
       </Tag>
     </p>
   </div>

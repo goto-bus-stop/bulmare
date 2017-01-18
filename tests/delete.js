@@ -5,7 +5,7 @@ import { Delete } from '../src'
 
 test('Delete renders a button with class "delete"', (t) => {
   t.true(shallow(<Delete />).dive().equals(
-    <button className="delete" />
+    <button className='delete' />
   ))
 })
 

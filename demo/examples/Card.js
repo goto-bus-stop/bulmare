@@ -4,8 +4,8 @@ export default () => (
   <div>
     <Card>
       <CardHeader
-        title="Component"
-        icon={<Icon name="angle-down" />}
+        title='Component'
+        icon={<Icon name='angle-down' />}
       />
       <CardContent>
         <Content>

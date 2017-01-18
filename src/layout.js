@@ -1,7 +1,6 @@
 import nest from 'recompose/nest'
 import { bulmaComponent } from './internal'
 
-
 // http://bulma.io/documentation/layout/container/
 export const Container = bulmaComponent('div', 'container')
 export const Header = nest(bulmaComponent('div', 'header'), Container)

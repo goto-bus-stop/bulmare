@@ -5,7 +5,7 @@ import { Menu, MenuLabel, MenuList, MenuItem } from '../src'
 
 test('<Menu /> renders an aside with class "menu"', (t) => {
   t.true(shallow(<Menu />).dive().equals(
-    <aside className="menu" />
+    <aside className='menu' />
   ))
 })
 
@@ -15,7 +15,7 @@ test('<MenuItem /> renders a plain list item', (t) => {
 
 test('<MenuList /> renders a list element', (t) => {
   t.true(shallow(<MenuList />).dive().equals(
-    <ul className="menu-list" />
+    <ul className='menu-list' />
   ))
 
   t.true(shallow(
@@ -23,7 +23,7 @@ test('<MenuList /> renders a list element', (t) => {
       <MenuItem>Dashboard</MenuItem>
     </MenuList>
   ).dive().equals(
-    <ul className="menu-list">
+    <ul className='menu-list'>
       <MenuItem>Dashboard</MenuItem>
     </ul>
   ))

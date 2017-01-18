@@ -13,7 +13,7 @@ test('Content passes through content', (t) => {
       <p>Styled <strong>content</strong></p>
     </Content>
   ).dive().equals(
-    <div className="content">
+    <div className='content'>
       <p>Styled <strong>content</strong></p>
     </div>
   ))

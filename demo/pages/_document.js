@@ -7,16 +7,16 @@ export default class extends Document {
     return (
       <html>
         <Head>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.0/css/bulma.min.css" />
+          <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.0/css/bulma.min.css' />
         </Head>
         <body>
           <Nav>
             <Container>
               <NavMenu left>
-                <NavTab component={Link} href="/">Home</NavTab>
+                <NavTab component={Link} href='/'>Home</NavTab>
               </NavMenu>
               <NavRight>
-                <NavItem href="http://bulma.io">Bulma</NavItem>
+                <NavItem href='http://bulma.io'>Bulma</NavItem>
               </NavRight>
             </Container>
           </Nav>

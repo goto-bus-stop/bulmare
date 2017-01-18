@@ -9,13 +9,13 @@ export const colorModifiers = {
   info: 'is-info',
   success: 'is-success',
   warning: 'is-warning',
-  danger: 'is-danger',
+  danger: 'is-danger'
 }
 
 export const sizeModifiers = {
   small: 'is-small',
   medium: 'is-medium',
-  large: 'is-large',
+  large: 'is-large'
 }
 
 export const withColorModifiers = withModifiers(colorModifiers)

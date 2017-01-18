@@ -5,7 +5,7 @@ import { Button } from '../src'
 
 test('Button renders a button with class "button"', (t) => {
   t.true(shallow(<Button />).dive().equals(
-    <button className="button" />
+    <button className='button' />
   ))
 })
 

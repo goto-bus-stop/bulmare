@@ -18,7 +18,7 @@ test('Containers should render their children', (t) => {
 })
 
 test('<Header />s should have class "header"', (t) => {
-  t.true(shallow(<Header />).hasClass('header'));
+  t.true(shallow(<Header />).hasClass('header'))
 })
 
 test('Headers should render a Container', (t) => {
@@ -36,7 +36,7 @@ test('Headers should render a Container', (t) => {
 })
 
 test('<Hero />s should have class "hero"', (t) => {
-  t.true(shallow(<Hero />).hasClass('hero'));
+  t.true(shallow(<Hero />).hasClass('hero'))
 })
 
 test('Hero should render a Container', (t) => {
@@ -54,7 +54,7 @@ test('Hero should render a Container', (t) => {
 })
 
 test('<Section />s should have class "section"', (t) => {
-  t.true(shallow(<Section />).hasClass('section'));
+  t.true(shallow(<Section />).hasClass('section'))
 })
 
 test('Sections should render a Container', (t) => {
@@ -72,7 +72,7 @@ test('Sections should render a Container', (t) => {
 })
 
 test('Footers should have class "footer"', (t) => {
-  t.true(shallow(<Footer />).hasClass('footer'));
+  t.true(shallow(<Footer />).hasClass('footer'))
 })
 
 test('Footers should render a Container', (t) => {

@@ -5,7 +5,7 @@ import { Progress } from '../src'
 
 test('Progress renders a progress bar with class "progress"', (t) => {
   t.true(shallow(<Progress />).dive().equals(
-    <progress className="progress" />
+    <progress className='progress' />
   ))
 })
 

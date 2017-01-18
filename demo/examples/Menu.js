@@ -1,7 +1,7 @@
 import { MenuLabel, MenuList, MenuItem } from 'bulmare'
 
 export default () => (
-  <aside className="menu">
+  <aside className='menu'>
     <MenuLabel>General</MenuLabel>
     <MenuList>
       <MenuItem><a>Dashboard</a></MenuItem>
@@ -11,7 +11,7 @@ export default () => (
     <MenuList>
       <MenuItem><a>Team Settings</a></MenuItem>
       <MenuItem>
-        <a className="is-active">Manage Your Team</a>
+        <a className='is-active'>Manage Your Team</a>
         <MenuList>
           <MenuItem><a>Members</a></MenuItem>
           <MenuItem><a>Plugins</a></MenuItem>

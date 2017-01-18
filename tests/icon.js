@@ -8,7 +8,7 @@ test('Icon renders an span with class "icon"', (t) => {
 })
 
 test('Icon "name" prop is mapped to a font-awesome className', (t) => {
-  t.true(shallow(<Icon name="check" />).childAt(0).dive().dive().equals(
-    <i className="fa fa-check" />
+  t.true(shallow(<Icon name='check' />).childAt(0).dive().dive().equals(
+    <i className='fa fa-check' />
   ))
 })
