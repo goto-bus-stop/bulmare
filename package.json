@@ -5,9 +5,12 @@
   "module": "dist/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "cross-env NODE_ENV=testing ava tests/*.js"
+    "test": "cross-env NODE_ENV=testing ava"
   },
   "ava": {
+    "files": [
+      "tests/*.js"
+    ],
     "require": [
       "babel-register"
     ],
