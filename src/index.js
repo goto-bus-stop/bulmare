@@ -182,4 +182,4 @@ export const Notification = bulmaComponent('div', 'notification', withColorModif
 export const Tag = bulmaComponent('span', 'tag', withColorModifiers, withSizeModifiers)
 
 // http://bulma.io/documentation/elements/progress/
-export const Progress = bulmaComponent('progress', 'progress')
+export const Progress = bulmaComponent('progress', 'progress', withSizeModifiers)
