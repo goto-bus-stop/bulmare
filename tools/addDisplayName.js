@@ -11,21 +11,56 @@ module.exports = ({ types: t }) => {
     )
   }
 
-  function wrapDeclaration (decl) {
+  function declareTempVariable (name, value) {
+    return t.variableDeclaration('let', [
+      t.variableDeclarator(name, value)
+    ])
+  }
+
+  const isProduction = t.binaryExpression(
+    '!==',
+    t.memberExpression(
+      t.memberExpression(t.identifier('process'), t.identifier('env')),
+      t.identifier('NODE_ENV')
+    ),
+    t.stringLiteral('production')
+  )
+
+  function setDisplayNameIfProduction (exportName, tempName, initNode) {
+    return [
+      declareTempVariable(tempName, initNode),
+      t.ifStatement(isProduction, t.expressionStatement(
+        t.assignmentExpression(
+          '=',
+          tempName,
+          setDisplayName(exportName.name, tempName)
+        )
+      ))
+    ]
+  }
+
+  function wrapDeclaration (decl, state) {
     // Only wrap Component exports (i.e. starting with a capital letter)
     if (!/^[A-Z]/.test(decl.get('id').node.name)) {
       return
     }
 
     if (decl.node.init) {
-      decl.get('init').replaceWith(
-        setDisplayName(decl.node.id.name, decl.node.init)
+      state.file[needsSetDisplayNameImport] = true
+
+      const initNode = decl.node.init
+      const exportName = decl.node.id
+
+      const tempName = decl.parentPath.scope.generateUidIdentifier(exportName.name)
+      decl.parentPath.parentPath.insertBefore(
+        setDisplayNameIfProduction(exportName, tempName, initNode)
       )
+      decl.get('init').replaceWith(tempName)
     }
   }
 
-  function wrapDeclarations (declarations) {
-    declarations.forEach(wrapDeclaration)
+  function wrapDeclarations (declarations, state) {
+    declarations.forEach((decl) => wrapDeclaration(decl, state))
   }
 
   const importSetDisplayName =
@@ -36,10 +71,9 @@ module.exports = ({ types: t }) => {
   return {
     visitor: {
       ExportNamedDeclaration (path, state) {
-        state.file[needsSetDisplayNameImport] = true
         const declaration = path.get('declaration')
         if (declaration.node) {
-          wrapDeclarations(declaration.get('declarations'))
+          wrapDeclarations(declaration.get('declarations'), state)
         }
       },
 
