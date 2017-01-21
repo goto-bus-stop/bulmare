@@ -23,7 +23,7 @@ const withIcons = mapProps(({ icon, iconRight, children, className, ...props }) 
 export const Control = bulmaComponent('div', 'control', withIcons, withModifiers({
   grouped: 'is-grouped',
   expanded: 'is-expanded',
-  horizontal: 'is-horizontal',
+  horizontal: 'is-horizontal'
 }))
 export const ControlGroup = withProps({ grouped: true })(Control)
 export const HorizontalGroup = withProps({ horizontal: true })(Control)
