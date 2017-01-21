@@ -11,7 +11,7 @@ const withModifiers = (classNames) =>
         classes.push(classNames[modifier])
       }
     })
-    newProps.className = cx(props.className, classes)
+    newProps.className = cx(props.className, ...classes)
     return newProps
   })
 
