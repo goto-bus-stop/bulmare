@@ -1,7 +1,18 @@
 import React from 'react'
 import test from 'ava'
 import { shallow } from 'enzyme'
-import { Control, Label, Input, Textarea, Checkbox, Radio, Icon } from '../src'
+import {
+  Control,
+  ControlGroup,
+  HorizontalGroup,
+  ControlLabel,
+  Label,
+  Input,
+  Textarea,
+  Checkbox,
+  Radio,
+  Icon
+} from '../src'
 
 test('Control should have class "control"', (t) => {
   t.true(shallow(<Control />).hasClass('control'))
@@ -32,15 +43,50 @@ test('Controls should render an icon if the "icon" prop is given', (t) => {
   ))
 })
 
+test('Controls can be grouped', (t) => {
+  t.true(shallow(
+    <ControlGroup>
+      <Control />
+      <Control expanded />
+    </ControlGroup>
+  ).dive().equals(
+    <div className='control is-grouped'>
+      <Control />
+      <Control expanded />
+    </div>
+  ))
+})
+
+test('Horizontal form controls render a Control with class "is-horizontal"', (t) => {
+  t.true(shallow(<HorizontalGroup />).dive().equals(
+    <div className='control is-horizontal' />
+  ))
+})
+
 test('Labels should have class "label"', (t) => {
   t.true(shallow(<Label>Username</Label>).dive().equals(
     <label className='label'>Username</label>
   ))
 })
 
+test('Control Labels should render a Label inside a div with class "control-label"', (t) => {
+  t.true(shallow(<ControlLabel>Username</ControlLabel>).hasClass('control-label'))
+
+  const contents = shallow(<ControlLabel>Username</ControlLabel>).childAt(0)
+  t.true(contents.equals(shallow(
+    <Label>Username</Label>
+  ).getNode()))
+})
+
 test('HTML Inputs should have class "input"', (t) => {
   t.true(shallow(<Input name='name' />).dive().equals(
     <input className='input' name='name' />
+  ))
+})
+
+test('HTML Inputs support color modifiers', (t) => {
+  t.true(shallow(<Input warning />).dive().equals(
+    <input className='input is-warning' />
   ))
 })
 
