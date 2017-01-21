@@ -1,6 +1,8 @@
 import { Section } from 'bulmare'
 
 import Card from '../examples/Card'
+import Controls from '../examples/Controls'
+import Form from '../examples/Form'
 import Menu from '../examples/Menu'
 import Message from '../examples/Message'
 import Tag from '../examples/Tag'
@@ -9,6 +11,12 @@ export default () => (
   <div>
     <Section>
       <Card />
+    </Section>
+    <Section>
+      <Controls />
+    </Section>
+    <Section>
+      <Form />
     </Section>
     <Section>
       <Menu />
