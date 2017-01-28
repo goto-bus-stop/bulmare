@@ -1,7 +1,7 @@
 import {
-    bulmaComponent,
-    withColorModifiers,
-    withSizeModifiers
+  bulmaComponent,
+  withColorModifiers,
+  withSizeModifiers
 } from './internal'
 
 // http://bulma.io/documentation/elements/box/
