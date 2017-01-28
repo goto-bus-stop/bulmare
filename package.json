@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
-    "recompose": "^0.21.2",
+    "recompose": "^0.22.0",
     "simple-assign": "^0.1.0"
   },
   "peerDependencies": {
