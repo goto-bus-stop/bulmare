@@ -21,7 +21,7 @@ const enhance = compose(
     openModal1: ({ setModal1Open }) => () => setModal1Open(true),
     openModal2: ({ setModal2Open }) => () => setModal2Open(true),
     closeModal1: ({ setModal1Open }) => () => setModal1Open(false),
-    closeModal2: ({ setModal2Open }) => () => setModal2Open(false),
+    closeModal2: ({ setModal2Open }) => () => setModal2Open(false)
   })
 )
 
