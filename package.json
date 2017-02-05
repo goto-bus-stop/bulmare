@@ -11,6 +11,10 @@
     "files": [
       "tests/*.js"
     ],
+    "cache": true,
+    "source": [
+      "src/**/*.js"
+    ],
     "require": [
       "babel-register"
     ],
