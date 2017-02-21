@@ -1,7 +1,8 @@
 import {
   bulmaComponent,
   withColorModifiers,
-  withSizeModifiers
+  withSizeModifiers,
+  withModifiers
 } from './internal'
 
 // http://bulma.io/documentation/elements/box/
@@ -21,3 +22,10 @@ export const Tag = bulmaComponent('span', 'tag', withColorModifiers, withSizeMod
 
 // http://bulma.io/documentation/elements/progress/
 export const Progress = bulmaComponent('progress', 'progress', withSizeModifiers)
+
+// http://bulma.io/documentation/elements/table/
+export const Table = bulmaComponent('table', 'table', withModifiers({
+  bordered: 'is-bordered',
+  striped: 'is-striped',
+  narrow: 'is-narrow'
+}))
