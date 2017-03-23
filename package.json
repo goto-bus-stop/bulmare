@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
+  "repository": "goto-bus-stop/bulmare",
+  "license": "MIT",
   "scripts": {
     "build": "rollup -c",
     "test": "cross-env NODE_ENV=testing ava && standard"
