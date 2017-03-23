@@ -33,7 +33,7 @@
     "simple-assign": "^0.1.0"
   },
   "peerDependencies": {
-    "bulma": "^0.3.0"
+    "bulma": "^0.3.0 || ^0.4.0"
   },
   "devDependencies": {
     "ava": "^0.18.1",
