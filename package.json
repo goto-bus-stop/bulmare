@@ -51,6 +51,6 @@
     "react-dom": "^15.4.2",
     "rollup": "^0.41.1",
     "rollup-plugin-babel": "^2.7.1",
-    "standard": "^9.0.2"
+    "standard": "^10.0.0"
   }
 }
