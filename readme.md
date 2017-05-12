@@ -2,8 +2,6 @@
 
 Thin functional React components for [Bulma][].
 
-> Bulmare is an early WIP, so please don't depend on it yet!
-
 ## Installation
 
 ```shell
