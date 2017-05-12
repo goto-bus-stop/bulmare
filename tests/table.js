@@ -1,5 +1,5 @@
 import React from 'react'
-import test from 'ava'
+import test from 'tape'
 import { shallow } from 'enzyme'
 import { Table } from '../src'
 
@@ -9,6 +9,7 @@ test('Table renders a <table /> with class "table"', (t) => {
   ).dive().equals(
     <table className='table' />
   ))
+  t.end()
 })
 
 test('Table supports modifiers', (t) => {
@@ -29,4 +30,5 @@ test('Table supports modifiers', (t) => {
   ).dive().equals(
     <table className='table is-narrow' />
   ))
+  t.end()
 })

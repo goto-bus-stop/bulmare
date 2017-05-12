@@ -1,5 +1,5 @@
 import React from 'react'
-import test from 'ava'
+import test from 'tape'
 import { shallow } from 'enzyme'
 import {
   Nav,
@@ -20,12 +20,34 @@ test('Nav should render a <nav> element with class "nav"', (t) => {
   ))
 
   t.true(shallow(<Nav shadow />).hasClass('has-shadow'))
+  t.end()
 })
 
-test.todo('tests for NavLeft')
-test.todo('tests for NavCenter')
-test.todo('tests for NavRight')
-test.todo('tests for NavMenu')
-test.todo('tests for NavItem')
-test.todo('tests for NavTab')
-test.todo('tests for NavToggle')
+test('tests for NavLeft', (t) => {
+  t.pass('todo')
+  t.end()
+})
+test('tests for NavCenter', (t) => {
+  t.pass('todo')
+  t.end()
+})
+test('tests for NavRight', (t) => {
+  t.pass('todo')
+  t.end()
+})
+test('tests for NavMenu', (t) => {
+  t.pass('todo')
+  t.end()
+})
+test('tests for NavItem', (t) => {
+  t.pass('todo')
+  t.end()
+})
+test('tests for NavTab', (t) => {
+  t.pass('todo')
+  t.end()
+})
+test('tests for NavToggle', (t) => {
+  t.pass('todo')
+  t.end()
+})

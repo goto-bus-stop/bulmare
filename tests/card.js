@@ -1,5 +1,5 @@
 import React from 'react'
-import test from 'ava'
+import test from 'tape'
 import { shallow } from 'enzyme'
 import {
   Card,
@@ -20,18 +20,24 @@ test('<Card /> should be a wrapper element with class "card"', (t) => {
       Contents
     </div>
   ))
+
+  t.end()
 })
 
 test('CardHeader should render a <header> element with class "card-header"', (t) => {
   t.true(shallow(<CardHeader />).dive().equals(
     <header className='card-header' />
   ))
+
+  t.end()
 })
 
 test('CardHeader should render a different element if requested', (t) => {
   t.true(shallow(<CardHeader component='div' />).dive().equals(
     <div className='card-header' />
   ))
+
+  t.end()
 })
 
 test('CardHeader should accept "title" shorthand prop', (t) => {
@@ -40,6 +46,8 @@ test('CardHeader should accept "title" shorthand prop', (t) => {
       <CardHeaderTitle>Card Title</CardHeaderTitle>
     </header>
   ))
+
+  t.end()
 })
 
 test('CardHeader should accept "icon" shorthand prop', (t) => {
@@ -54,6 +62,8 @@ test('CardHeader should accept "icon" shorthand prop', (t) => {
       </CardHeaderIcon>
     </header>
   ))
+
+  t.end()
 })
 
 test('CardHeader should render both custom children and children injected by props', (t) => {
@@ -73,30 +83,36 @@ test('CardHeader should render both custom children and children injected by pro
       <button>Example</button>
     </header>
   ))
+  t.end()
 })
 
 test('CardImage should have class "card-image"', (t) => {
   t.true(shallow(<CardImage />).hasClass('card-image'))
+  t.end()
 })
 
 test('CardContent should have class "card-content"', (t) => {
   t.true(shallow(<CardContent />).hasClass('card-content'))
+  t.end()
 })
 
 test('CardFooter should be a <footer> with class "card-footer"', (t) => {
   t.true(shallow(<CardFooter />).dive().equals(
     <footer className='card-footer' />
   ))
+  t.end()
 })
 
 test('CardFooterItem should have class "card-footer-item"', (t) => {
   t.true(shallow(<CardFooterItem />).dive().equals(
     <span className='card-footer-item' />
   ))
+  t.end()
 })
 
 test('CardFooterLink should be a link with class "card-footer-item"', (t) => {
   t.true(shallow(<CardFooterLink href='http://bulma.io' />).dive().equals(
     <a className='card-footer-item' href='http://bulma.io' />
   ))
+  t.end()
 })

@@ -1,5 +1,5 @@
 import React from 'react'
-import test from 'ava'
+import test from 'tape'
 import { shallow } from 'enzyme'
 import {
   Control,
@@ -16,6 +16,7 @@ import {
 
 test('Control should have class "control"', (t) => {
   t.true(shallow(<Control />).hasClass('control'))
+  t.end()
 })
 
 test('Controls should render an icon if the "icon" prop is given', (t) => {
@@ -41,6 +42,7 @@ test('Controls should render an icon if the "icon" prop is given', (t) => {
       <Input />
     </div>
   ))
+  t.end()
 })
 
 test('Controls can be grouped', (t) => {
@@ -55,18 +57,21 @@ test('Controls can be grouped', (t) => {
       <Control expanded />
     </div>
   ))
+  t.end()
 })
 
 test('Horizontal form controls render a Control with class "is-horizontal"', (t) => {
   t.true(shallow(<HorizontalGroup />).dive().equals(
     <div className='control is-horizontal' />
   ))
+  t.end()
 })
 
 test('Labels should have class "label"', (t) => {
   t.true(shallow(<Label>Username</Label>).dive().equals(
     <label className='label'>Username</label>
   ))
+  t.end()
 })
 
 test('Control Labels should render a Label inside a div with class "control-label"', (t) => {
@@ -76,34 +81,40 @@ test('Control Labels should render a Label inside a div with class "control-labe
   t.true(contents.equals(shallow(
     <Label>Username</Label>
   ).getNode()))
+  t.end()
 })
 
 test('HTML Inputs should have class "input"', (t) => {
   t.true(shallow(<Input name='name' />).dive().equals(
     <input className='input' name='name' />
   ))
+  t.end()
 })
 
 test('HTML Inputs support color modifiers', (t) => {
   t.true(shallow(<Input warning />).dive().equals(
     <input className='input is-warning' />
   ))
+  t.end()
 })
 
 test('Textareas should have class "textarea"', (t) => {
   t.true(shallow(<Textarea />).dive().equals(
     <textarea className='textarea' />
   ))
+  t.end()
 })
 
 test('Checkboxes should have type "checkbox" and class "checkbox"', (t) => {
   t.true(shallow(<Checkbox checked />).dive().equals(
     <input type='checkbox' className='checkbox' checked />
   ))
+  t.end()
 })
 
 test('Radio buttons should have type "radio" and class "radio"', (t) => {
   t.true(shallow(<Radio />).dive().equals(
     <input type='radio' className='radio' />
   ))
+  t.end()
 })

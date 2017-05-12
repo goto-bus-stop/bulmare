@@ -1,5 +1,5 @@
 import React from 'react'
-import test from 'ava'
+import test from 'tape'
 import { shallow } from 'enzyme'
 import { Button } from '../src'
 
@@ -7,12 +7,16 @@ test('Button renders a button with class "button"', (t) => {
   t.true(shallow(<Button />).dive().equals(
     <button className='button' />
   ))
+
+  t.end()
 })
 
 test('Buttons support sizes', (t) => {
   t.true(shallow(<Button small />).hasClass('is-small'))
   t.true(shallow(<Button medium />).hasClass('is-medium'))
   t.true(shallow(<Button large />).hasClass('is-large'))
+
+  t.end()
 })
 
 test('Buttons support colours', (t) => {
@@ -28,9 +32,13 @@ test('Buttons support colours', (t) => {
   t.true(shallow(<Button danger />).hasClass('is-danger'))
 
   t.true(shallow(<Button link />).hasClass('is-link'))
+
+  t.end()
 })
 
 test('Buttons support states', (t) => {
   t.true(shallow(<Button outlined />).hasClass('is-outlined'))
   t.true(shallow(<Button loading />).hasClass('is-loading'))
+
+  t.end()
 })
