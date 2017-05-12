@@ -11,34 +11,6 @@ module.exports = ({ types: t }) => {
     )
   }
 
-  function declareTempVariable (name, value) {
-    return t.variableDeclaration('let', [
-      t.variableDeclarator(name, value)
-    ])
-  }
-
-  const isProduction = t.binaryExpression(
-    '!==',
-    t.memberExpression(
-      t.memberExpression(t.identifier('process'), t.identifier('env')),
-      t.identifier('NODE_ENV')
-    ),
-    t.stringLiteral('production')
-  )
-
-  function setDisplayNameIfProduction (exportName, tempName, initNode) {
-    return [
-      declareTempVariable(tempName, initNode),
-      t.ifStatement(isProduction, t.expressionStatement(
-        t.assignmentExpression(
-          '=',
-          tempName,
-          setDisplayName(exportName.name, tempName)
-        )
-      ))
-    ]
-  }
-
   function wrapDeclaration (decl, state) {
     // Only wrap Component exports (i.e. starting with a capital letter)
     if (!/^[A-Z]/.test(decl.get('id').node.name)) {
@@ -50,12 +22,7 @@ module.exports = ({ types: t }) => {
 
       const initNode = decl.node.init
       const exportName = decl.node.id
-
-      const tempName = decl.parentPath.scope.generateUidIdentifier(exportName.name)
-      decl.parentPath.parentPath.insertBefore(
-        setDisplayNameIfProduction(exportName, tempName, initNode)
-      )
-      decl.get('init').replaceWith(tempName)
+      decl.get('init').replaceWith(setDisplayName(exportName.name, initNode))
     }
   }
 
