@@ -1,5 +1,7 @@
 # bulmare
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/goto-bus-stop/bulmare.svg)](https://greenkeeper.io/)
+
 Thin functional React components for [Bulma][].
 
 ## Installation
