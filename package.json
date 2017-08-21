@@ -22,6 +22,7 @@
     "bulma": "^0.3.0 || ^0.4.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-preset-latest": "^6.16.0",
@@ -35,7 +36,7 @@
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
     "rollup": "^0.48.0",
-    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-babel": "^3.0.0",
     "standard": "^10.0.0",
     "tap-min": "^1.2.1",
     "tape": "^4.6.3"
