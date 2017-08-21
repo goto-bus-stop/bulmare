@@ -24,21 +24,21 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.18.0",
-    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
-    "babel-register": "^6.18.0",
+    "babel-register": "^6.26.0",
     "buble": "^0.15.2",
     "bulma": "^0.3.0",
     "cross-env": "^5.0.0",
-    "enzyme": "^2.7.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.5.4",
+    "enzyme": "^2.9.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "react-test-renderer": "^15.5.4",
     "rollup": "^0.48.0",
     "rollup-plugin-babel": "^3.0.0",
-    "standard": "^10.0.0",
+    "standard": "^10.0.3",
     "tap-min": "^1.2.1",
-    "tape": "^4.6.3"
+    "tape": "^4.8.0"
   }
 }
