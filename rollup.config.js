@@ -3,10 +3,10 @@ import babel from 'rollup-plugin-babel'
 const pkg = require('./package.json')
 
 export default {
-  entry: './src/index.js',
-  targets: [
-    { format: 'cjs', dest: 'dist/index.cjs.js' },
-    { format: 'es', dest: 'dist/index.es.js' }
+  input: './src/index.js',
+  output: [
+    { format: 'cjs', file: 'dist/index.cjs.js' },
+    { format: 'es', file: 'dist/index.es.js' }
   ],
   plugins: [
     babel({
