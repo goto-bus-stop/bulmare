@@ -28,7 +28,7 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-register": "^6.26.0",
-    "buble": "^0.17.0",
+    "buble": "^0.18.0",
     "bulma": "^0.3.0",
     "cross-env": "^5.0.0",
     "enzyme": "^2.9.1",
