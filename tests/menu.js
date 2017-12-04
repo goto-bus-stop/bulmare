@@ -4,35 +4,43 @@ import { shallow } from 'enzyme'
 import { Menu, MenuLabel, MenuList, MenuItem } from '../src'
 
 test('<Menu /> renders an aside with class "menu"', (t) => {
-  t.true(shallow(<Menu />).dive().equals(
-    <aside className='menu' />
-  ))
+  t.equal(
+    shallow(<Menu />).html(),
+    shallow(<aside className='menu' />).html()
+  )
   t.end()
 })
 
 test('<MenuItem /> renders a plain list item', (t) => {
-  t.true(shallow(<MenuItem />).equals(<li />))
+  t.equal(
+    shallow(<MenuItem />).html(),
+    shallow(<li />).html()
+  )
   t.end()
 })
 
 test('<MenuList /> renders a list element', (t) => {
-  t.true(shallow(<MenuList />).dive().equals(
-    <ul className='menu-list' />
-  ))
+  t.equal(
+    shallow(<MenuList />).html(),
+    shallow(<ul className='menu-list' />).html()
+  )
 
-  t.true(shallow(
-    <MenuList>
-      <MenuItem>Dashboard</MenuItem>
-    </MenuList>
-  ).dive().equals(
-    <ul className='menu-list'>
-      <MenuItem>Dashboard</MenuItem>
-    </ul>
-  ))
+  t.equal(
+    shallow(
+      <MenuList>
+        <MenuItem>Dashboard</MenuItem>
+      </MenuList>
+    ).html(),
+    shallow(
+      <ul className='menu-list'>
+        <MenuItem>Dashboard</MenuItem>
+      </ul>
+    ).html()
+  )
   t.end()
 })
 
 test('<MenuLabel /> has class "menu-label"', (t) => {
-  t.true(shallow(<MenuLabel />).hasClass('menu-label'))
+  t.ok(shallow(<MenuLabel />).hasClass('menu-label'))
   t.end()
 })

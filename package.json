@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "test:tape": "cross-env NODE_ENV=testing tape -r babel-register tests/*.js",
+    "test:tape": "cross-env NODE_ENV=testing tape -r babel-register -r ./tests/_init.js tests/*.js",
     "test:lint": "standard",
     "test": "npm run test:tape | tap-min && npm run test:lint"
   },
@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
-    "recompose": "^0.24.0"
+    "recompose": "^0.26.0"
   },
   "peerDependencies": {
     "bulma": "^0.3.0 || ^0.4.0"
@@ -31,14 +31,15 @@
     "buble": "^0.18.0",
     "bulma": "^0.3.0",
     "cross-env": "^5.0.0",
-    "enzyme": "^2.9.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-test-renderer": "^15.5.4",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-test-renderer": "^16.0.0",
     "rollup": "^0.52.0",
     "rollup-plugin-babel": "^3.0.0",
     "standard": "^10.0.3",
-    "tap-min": "^1.2.1",
+    "tap-min": "^1.2.2",
     "tape": "^4.8.0"
   }
 }

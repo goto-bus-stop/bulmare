@@ -1,44 +1,42 @@
 import React from 'react'
 import test from 'tape'
-import { shallow } from 'enzyme'
+import { render } from 'enzyme'
 import { Button } from '../src'
 
 test('Button renders a button with class "button"', (t) => {
-  t.true(shallow(<Button />).dive().equals(
-    <button className='button' />
-  ))
+  t.ok(render(<Button />).is('button.button'))
 
   t.end()
 })
 
 test('Buttons support sizes', (t) => {
-  t.true(shallow(<Button small />).hasClass('is-small'))
-  t.true(shallow(<Button medium />).hasClass('is-medium'))
-  t.true(shallow(<Button large />).hasClass('is-large'))
+  t.ok(render(<Button small />).hasClass('is-small'))
+  t.ok(render(<Button medium />).hasClass('is-medium'))
+  t.ok(render(<Button large />).hasClass('is-large'))
 
   t.end()
 })
 
 test('Buttons support colours', (t) => {
-  t.true(shallow(<Button white />).hasClass('is-white'))
-  t.true(shallow(<Button light />).hasClass('is-light'))
-  t.true(shallow(<Button dark />).hasClass('is-dark'))
-  t.true(shallow(<Button black />).hasClass('is-black'))
+  t.ok(render(<Button white />).hasClass('is-white'))
+  t.ok(render(<Button light />).hasClass('is-light'))
+  t.ok(render(<Button dark />).hasClass('is-dark'))
+  t.ok(render(<Button black />).hasClass('is-black'))
 
-  t.true(shallow(<Button primary />).hasClass('is-primary'))
-  t.true(shallow(<Button info />).hasClass('is-info'))
-  t.true(shallow(<Button success />).hasClass('is-success'))
-  t.true(shallow(<Button warning />).hasClass('is-warning'))
-  t.true(shallow(<Button danger />).hasClass('is-danger'))
+  t.ok(render(<Button primary />).hasClass('is-primary'))
+  t.ok(render(<Button info />).hasClass('is-info'))
+  t.ok(render(<Button success />).hasClass('is-success'))
+  t.ok(render(<Button warning />).hasClass('is-warning'))
+  t.ok(render(<Button danger />).hasClass('is-danger'))
 
-  t.true(shallow(<Button link />).hasClass('is-link'))
+  t.ok(render(<Button link />).hasClass('is-link'))
 
   t.end()
 })
 
 test('Buttons support states', (t) => {
-  t.true(shallow(<Button outlined />).hasClass('is-outlined'))
-  t.true(shallow(<Button loading />).hasClass('is-loading'))
+  t.ok(render(<Button outlined />).hasClass('is-outlined'))
+  t.ok(render(<Button loading />).hasClass('is-loading'))
 
   t.end()
 })

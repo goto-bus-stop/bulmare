@@ -1,6 +1,6 @@
 import React from 'react'
 import test from 'tape'
-import { shallow } from 'enzyme'
+import { render, shallow } from 'enzyme'
 import {
   Card,
   CardHeader,
@@ -15,66 +15,58 @@ import {
 } from '../src'
 
 test('<Card /> should be a wrapper element with class "card"', (t) => {
-  t.true(shallow(<Card>Contents</Card>).dive().equals(
-    <div className='card'>
-      Contents
-    </div>
-  ))
+  t.ok(render(<Card>Contents</Card>).is('div.card'))
+  t.ok(shallow(<Card>Contents</Card>).childAt(0).equals('Contents'))
 
   t.end()
 })
 
 test('CardHeader should render a <header> element with class "card-header"', (t) => {
-  t.true(shallow(<CardHeader />).dive().equals(
-    <header className='card-header' />
-  ))
-
+  t.ok(render(<CardHeader />).is('header.card-header'))
   t.end()
 })
 
 test('CardHeader should render a different element if requested', (t) => {
-  t.true(shallow(<CardHeader component='div' />).dive().equals(
-    <div className='card-header' />
-  ))
+  t.ok(render(<CardHeader component='div' />).is('div.card-header'))
 
   t.end()
 })
 
 test('CardHeader should accept "title" shorthand prop', (t) => {
-  t.true(shallow(<CardHeader title='Card Title' />).dive().equals(
+  t.equal(shallow(<CardHeader title='Card Title' />).html(), shallow(
     <header className='card-header'>
       <CardHeaderTitle>Card Title</CardHeaderTitle>
     </header>
-  ))
+  ).html())
 
   t.end()
 })
 
 test('CardHeader should accept "icon" shorthand prop', (t) => {
-  t.true(shallow(
+  t.equal(shallow(
     <CardHeader
       icon={<Icon name='test' />}
     />
-  ).dive().equals(
+  ).html(), shallow(
     <header className='card-header'>
       <CardHeaderIcon>
         <Icon name='test' />
       </CardHeaderIcon>
     </header>
-  ))
+  ).html())
 
   t.end()
 })
 
 test('CardHeader should render both custom children and children injected by props', (t) => {
-  t.true(shallow(
+  t.equal(shallow(
     <CardHeader
       title='Card'
       icon={<Icon name='card' />}
     >
       <button>Example</button>
     </CardHeader>
-  ).dive().equals(
+  ).html(), shallow(
     <header className='card-header'>
       <CardHeaderTitle>Card</CardHeaderTitle>
       <CardHeaderIcon>
@@ -82,37 +74,31 @@ test('CardHeader should render both custom children and children injected by pro
       </CardHeaderIcon>
       <button>Example</button>
     </header>
-  ))
+  ).html())
   t.end()
 })
 
 test('CardImage should have class "card-image"', (t) => {
-  t.true(shallow(<CardImage />).hasClass('card-image'))
+  t.ok(render(<CardImage />).hasClass('card-image'))
   t.end()
 })
 
 test('CardContent should have class "card-content"', (t) => {
-  t.true(shallow(<CardContent />).hasClass('card-content'))
+  t.ok(render(<CardContent />).hasClass('card-content'))
   t.end()
 })
 
 test('CardFooter should be a <footer> with class "card-footer"', (t) => {
-  t.true(shallow(<CardFooter />).dive().equals(
-    <footer className='card-footer' />
-  ))
+  t.ok(render(<CardFooter />).is('footer.card-footer'))
   t.end()
 })
 
 test('CardFooterItem should have class "card-footer-item"', (t) => {
-  t.true(shallow(<CardFooterItem />).dive().equals(
-    <span className='card-footer-item' />
-  ))
+  t.ok(render(<CardFooterItem />).hasClass('card-footer-item'))
   t.end()
 })
 
 test('CardFooterLink should be a link with class "card-footer-item"', (t) => {
-  t.true(shallow(<CardFooterLink href='http://bulma.io' />).dive().equals(
-    <a className='card-footer-item' href='http://bulma.io' />
-  ))
+  t.ok(render(<CardFooterLink href='http://bulma.io' />).is('a.card-footer-item'))
   t.end()
 })

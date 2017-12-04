@@ -15,11 +15,12 @@ import {
 } from '../src'
 
 test('Nav should render a <nav> element with class "nav"', (t) => {
-  t.true(shallow(<Nav />).dive().equals(
-    <nav className='nav' />
-  ))
+  t.equal(
+    shallow(<Nav />).html(),
+    shallow(<nav className='nav' />).html()
+  )
 
-  t.true(shallow(<Nav shadow />).hasClass('has-shadow'))
+  t.ok(shallow(<Nav shadow />).hasClass('has-shadow'))
   t.end()
 })
 

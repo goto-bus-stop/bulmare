@@ -1,29 +1,27 @@
 import React from 'react'
 import test from 'tape'
-import { shallow } from 'enzyme'
+import { render, shallow } from 'enzyme'
 import { Content } from '../src'
 
 test('Content renders a div with class "content"', (t) => {
-  t.true(shallow(<Content />).hasClass('content'))
+  t.ok(render(<Content />).hasClass('content'))
   t.end()
 })
 
 test('Content passes through content', (t) => {
-  t.true(shallow(
+  t.ok(shallow(
     <Content>
       <p>Styled <strong>content</strong></p>
     </Content>
-  ).dive().equals(
-    <div className='content'>
-      <p>Styled <strong>content</strong></p>
-    </div>
+  ).childAt(0).equals(
+    <p>Styled <strong>content</strong></p>
   ))
   t.end()
 })
 
 test('Content supports size modifiers', (t) => {
-  t.true(shallow(<Content small />).hasClass('is-small'))
-  t.true(shallow(<Content medium />).hasClass('is-medium'))
-  t.true(shallow(<Content large />).hasClass('is-large'))
+  t.ok(render(<Content small />).hasClass('is-small'))
+  t.ok(render(<Content medium />).hasClass('is-medium'))
+  t.ok(render(<Content large />).hasClass('is-large'))
   t.end()
 })

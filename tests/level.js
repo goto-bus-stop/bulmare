@@ -1,37 +1,29 @@
 import React from 'react'
 import test from 'tape'
-import { shallow } from 'enzyme'
+import { render } from 'enzyme'
 import { Level, LevelItem, LevelLeft, LevelRight } from '../src'
 
 test('Level renders a div with class "level"', (t) => {
-  t.true(shallow(<Level />).dive().equals(
-    <div className='level' />
-  ))
+  t.ok(render(<Level />).is('div.level'))
   t.end()
 })
 
 test('Level has a `mobile` modifier', (t) => {
-  t.true(shallow(<Level mobile />).dive().is('div.level.is-mobile'))
+  t.ok(render(<Level mobile />).is('div.level.is-mobile'))
   t.end()
 })
 
 test('Level items have the "level-item" class', (t) => {
-  t.true(shallow(<LevelItem />).dive().equals(
-    <div className='level-item' />
-  ))
+  t.ok(render(<LevelItem />).hasClass('level-item'))
   t.end()
 })
 
 test('LevelLeft components have the "level-left" class', (t) => {
-  t.true(shallow(<LevelLeft />).dive().equals(
-    <div className='level-left' />
-  ))
+  t.ok(render(<LevelLeft />).hasClass('level-left'))
   t.end()
 })
 
 test('LevelRight components have the "level-right" class', (t) => {
-  t.true(shallow(<LevelRight />).dive().equals(
-    <div className='level-right' />
-  ))
+  t.ok(render(<LevelRight />).hasClass('level-right'))
   t.end()
 })

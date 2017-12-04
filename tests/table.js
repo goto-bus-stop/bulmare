@@ -4,31 +4,27 @@ import { shallow } from 'enzyme'
 import { Table } from '../src'
 
 test('Table renders a <table /> with class "table"', (t) => {
-  t.true(shallow(
-    <Table />
-  ).dive().equals(
-    <table className='table' />
-  ))
+  t.equal(
+    shallow(<Table />).html(),
+    shallow(<table className='table' />).html()
+  )
   t.end()
 })
 
 test('Table supports modifiers', (t) => {
-  t.true(shallow(
-    <Table bordered />
-  ).dive().equals(
-    <table className='table is-bordered' />
-  ))
+  t.equal(
+    shallow(<Table bordered />).html(),
+    shallow(<table className='table is-bordered' />).html()
+  )
 
-  t.true(shallow(
-    <Table striped />
-  ).dive().equals(
-    <table className='table is-striped' />
-  ))
+  t.equal(
+    shallow(<Table striped />).html(),
+    shallow(<table className='table is-striped' />).html()
+  )
 
-  t.true(shallow(
-    <Table narrow />
-  ).dive().equals(
-    <table className='table is-narrow' />
-  ))
+  t.equal(
+    shallow(<Table narrow />).html(),
+    shallow(<table className='table is-narrow' />).html()
+  )
   t.end()
 })
