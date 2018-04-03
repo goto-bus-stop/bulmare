@@ -19,6 +19,12 @@ export const sizeModifiers = {
   large: 'is-large'
 }
 
+export const stateModifiers = {
+  hovered: 'is-hovered',
+  focused: 'is-focused',
+  active: 'is-active'
+}
+
 export const withColorModifiers = withModifiers(colorModifiers)
 export const withSizeModifiers = withModifiers(sizeModifiers)
 export const withDisableModifier = withModifiers({
