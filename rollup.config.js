@@ -5,8 +5,8 @@ const pkg = require('./package.json')
 export default {
   input: './src/index.js',
   output: [
-    { format: 'cjs', file: 'dist/index.cjs.js' },
-    { format: 'es', file: 'dist/index.es.js' }
+    { format: 'cjs', file: pkg.main },
+    { format: 'es', file: pkg.module }
   ],
   plugins: [
     babel({ include: 'src/**' })
