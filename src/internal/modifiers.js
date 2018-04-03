@@ -25,8 +25,15 @@ export const stateModifiers = {
   active: 'is-active'
 }
 
+export const alignmentModifiers = {
+  centered: 'is-centered',
+  right: 'is-right'
+}
+
 export const withColorModifiers = withModifiers(colorModifiers)
 export const withSizeModifiers = withModifiers(sizeModifiers)
 export const withDisableModifier = withModifiers({
   disabled: 'is-disabled'
 })
+export const withStateModifiers = withModifiers(stateModifiers)
+export const withAlignmentModifiers = withModifiers(alignmentModifiers)
