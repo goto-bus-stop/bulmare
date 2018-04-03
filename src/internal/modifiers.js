@@ -6,6 +6,7 @@ export const colorModifiers = {
   light: 'is-light',
   white: 'is-white',
   primary: 'is-primary',
+  link: 'is-link',
   info: 'is-info',
   success: 'is-success',
   warning: 'is-warning',
