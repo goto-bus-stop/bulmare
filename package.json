@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
-    "recompose": "^0.27.0"
+    "recompose": "^0.28.0"
   },
   "peerDependencies": {
     "bulma": "^0.3.0 || ^0.4.0"
