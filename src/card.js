@@ -16,7 +16,17 @@ export const CardHeader = bulmaComponent('header', 'card-header',
     ].concat(props.children).filter(Boolean)
   }))
 )
-export const CardImage = bulmaComponent('div', 'card-image')
+export const CardImage = bulmaComponent('div', 'card-image',
+  mapProps(({ src, children, ...props }) => ({
+    ...props,
+    // TODO Perhaps throw if both src and children are provided?
+    children: src && !children ? (
+      <figure className='image'>
+        <img {...props} src={src} />
+      </figure>
+    ) : children
+  }))
+)
 export const CardContent = bulmaComponent('div', 'card-content')
 export const CardFooter = bulmaComponent('footer', 'card-footer')
 export const CardFooterItem = bulmaComponent('span', 'card-footer-item')
