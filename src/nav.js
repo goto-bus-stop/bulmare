@@ -17,5 +17,5 @@ export const NavMenu = bulmaComponent('div', 'nav-menu', withModifiers({
 export const NavItem = bulmaComponent('a', 'nav-item')
 export const NavTab = defaultProps({ className: 'is-tab' })(NavItem)
 export const NavToggle = bulmaComponent('span', 'nav-toggle', defaultProps({
-  children: [<span />, <span />, <span />]
+  children: [<span />, <span />, <span />] // eslint-disable-line react/jsx-key
 }))
